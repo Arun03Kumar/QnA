@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}
+:root {
+  --primary: #626ee3;
+}
+img {
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+.main-cont {
+  width: 90%;
+  margin: 20px auto 0 auto;
+  display: flex;
+  border: 1px solid var(--primary);
+}
+.ques-cont {
+  width: 50%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.img-asked-by {
+  width: 100px;
+  margin: 0 auto;
+  height: 100px;
+  /* background-color: var(--primary); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ques {
+  /* color: white; */
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+}
+.cat {
+  font-size: 1rem;
+  margin-top: 20px;
+}
+.ans-cont {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 70px 40px 0;
+  /* margin-bottom: 30px; */
+}
+.img-flo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.ans-usr {
+  /* width: 40px; */
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+}
+
+.ans {
+  background: var(--primary);
+  padding: 20px;
+  color: white;
+  text-align: justify;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.ans-usr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-user-plus {
+  margin-left: 20px;
+}
+.like {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+.mar-like {
+  margin-left: 20px;
+}

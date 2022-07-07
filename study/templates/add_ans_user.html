@@ -1,0 +1,46 @@
+{% include 'user_navigation.html' %}
+<style>
+  form {
+    display: flex;
+    width: 80%;
+    margin: 60px auto;
+  }
+  .ques-ask {
+    width: 40%;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  button {
+    padding: 20px;
+    background-color: #626ee3;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+<form method="post">
+  {% csrf_token %}
+
+  <div class="ques-ask">
+    <p>{{ data.que }}</p>
+    <input
+      type="text"
+      value="{{ data.id }}"
+      name="atopic"
+      readonly
+      style="display: none"
+    />
+  </div>
+  <div class="ans-area">
+    <textarea id="mytex" name="ans" cols="30" rows="10"></textarea>
+    <div style="display: flex; justify-content: flex-end">
+      <button>Submit</button>
+    </div>
+  </div>
+</form>
+
+{% include 'footer.html' %}

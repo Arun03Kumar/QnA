@@ -1,0 +1,104 @@
+<html>
+  <head>
+    {% load static %}
+    <title>Study Material</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}" />
+    <style>
+      .active::before {
+        content: "";
+        height: 100%;
+        width: 150%;
+        position: absolute;
+        background-color: #f7f7f7;
+        left: -170px;
+        top: 0;
+      }
+      .card-cont {
+        width: 90%;
+        text-align: justify;
+        margin-bottom: 50px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+      }
+      .topic {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .del {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+      .del > a > button {
+        padding: 15px;
+        border: none;
+        border-radius: 3px;
+        color: #f7f7f7;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="body-container">
+        <a href="{% url 'index' %}"><p class="logo">Q n A</p></a>
+        <div class="all-content">
+          {% for i in data %}
+          <div class="card-cont">
+            <div class="card">
+              <div class="blog-cont">
+                <div class="topic">{{ i.topic }}</div>
+              </div>
+            </div>
+            <div class="del">
+              <a href="{% url 'blog' i.id %}"
+                ><button style="background: #626ee3; margin-right: 5px">
+                  view Blog
+                </button></a
+              >
+              <a href="{% url 'delete_blog' i.id %}"
+                ><button style="background: #eb5353">Delete Blog</button></a
+              >
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="menu-admin">
+        <div class="admin-navigation">
+          <p>
+            Welcome,
+            <span style="font-weight: bold; font-size: 1.3rem">
+              {{ user }}</span
+            >
+          </p>
+          <ul class="admin-nav">
+            <a href="{% url 'admin_home' %}"
+              ><li class="nav-items-admin">Home</li></a
+            >
+            <a href="{% url 'view_user' %}"
+              ><li class="nav-items-admin">View Users</li></a
+            >
+            <a href=""><li class="active">View Blogs</li></a>
+            <a href="{% url 'change_password' %}"
+              ><li class="nav-items-admin">Change Password</li></a
+            >
+            <a href=""><li class="nav-items-admin">View Feedback</li></a>
+          </ul>
+          <a href="{% url 'logout' %}"
+            ><button class="buttn">Log Out</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

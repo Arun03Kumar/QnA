@@ -1,0 +1,122 @@
+<html>
+  <head>
+    {% load static %}
+    <title>QnA-Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <script>
+      function checkpass() {
+        if (document.signup.pwd.value != document.signup.cpwd.value) {
+          alert("Password Does Not Match");
+          document.signup.cpwd.focus();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'index' %}"><div class="logo">Q n A</div></a>
+      <div class="log">
+        <a href="{% url 'index' %}"
+          ><button class="log-btn"><i class="fa fa-home"></i> Home</button></a
+        >
+      </div>
+    </header>
+    <div class="sign-container">
+      <div class="left-sign">
+        <p>Create an Account</p>
+        <div class="line"></div>
+        <form
+          class="sign-form"
+          onsubmit="return checkpass();"
+          name="signup"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="form-outer">
+            <div class="left-c1">
+              <label class="custom-field one">
+                <input type="text" name="fname" required />
+                <span class="placeholder">first name</span>
+              </label>
+              <label class="custom-field one">
+                <input type="number" name="contact" required />
+                <span class="placeholder">phone no.</span>
+              </label>
+              <label class="custom-field one">
+                <input type="password" name="pwd" required />
+                <span class="placeholder">password</span>
+              </label>
+              <label class="custom-field one">
+                <input type="date" name="dob" required />
+              </label>
+            </div>
+            <div class="left-c2">
+              <label class="custom-field one">
+                <input type="text" name="lname" required />
+                <span class="placeholder">last name</span>
+              </label>
+              <label class="custom-field one">
+                <input type="email" name="email" required />
+                <span class="placeholder">email address</span>
+              </label>
+              <label class="custom-field one">
+                <input type="password" name="cpwd" required />
+                <span class="placeholder">repeat password</span>
+              </label>
+              <label class="rad"
+                >Gender :
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  id="customRadioInLine1"
+                />
+                <label class="custom-control-label" for="customRadioInLine1"
+                  >Male</label
+                >
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  id="customRadioInLine2"
+                />
+                <label class="custom-control-label" for="customRadioInLine2"
+                  >Female</label
+                >
+              </label>
+            </div>
+          </div>
+          <input class="inp sgn-btn" type="submit" value="Sign up" />
+        </form>
+      </div>
+      <div class="right-sign">
+        <p>Already have an account.</p>
+        <a href="{% url 'login' %}"
+          ><button class="inp btn-log">
+            <i class="fa fa-sign-in"></i> Log In
+          </button></a
+        >
+      </div>
+    </div>
+
+    {% if error == "no" %}
+    <script>
+      alert("Signup Successfull")
+      window.location = ('{% url 'login' %}')
+    </script>
+    {% endif %} {% if error == "yes" %}
+    <script>
+      alert("Somthing Wrong, Try Again...");
+    </script>
+    {% endif %}
+  </body>
+</html>

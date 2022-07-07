@@ -1,0 +1,56 @@
+{% load static %} {% include 'user_navigation.html' %}
+<link rel="stylesheet" href="{% static 'css/userhome.css' %}" />
+<div class="main-user-view">
+  <div class="left-user-main">
+    <div class="search">
+      <span>Filter</span>
+      <i class="fa fa-filter"></i>
+      <input class="srch" type="search" name="" id="" />
+      <div class="ask-btn">
+        <a href="{% url 'add_que_user' %}"><button>Ask a Question</button></a>
+      </div>
+    </div>
+    {% for i, j in lst %}
+    <div class="usr-ques">
+      <div class="ques-wrapper">
+        <div class="quess">{{ i.que }}</div>
+      </div>
+      <div class="ans-btn">
+        <div class="ques-askes-inf">
+          <div class="ans-usr-img">
+            {% for k in all_usr %} {% if k.user.id == i.user_id %}
+            <img src="{{ MEDIA_URL }}/media/{{ k.usr_img }}" alt="" />
+            {% endif %} {% endfor %}
+          </div>
+          <div class="ans-usr-name">{{ i.user }}</div>
+          <div class="follow">
+            <a href="{% url 'follow_inc' i.user_id %}"
+              ><i class="fa fa-user-plus"></i> FOLLOW</a
+            >
+          </div>
+        </div>
+        <a href="{% url 'add_ans_user' i.id%}"><button>Answer</button></a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="right-user-main">
+    <div class="usr-img">
+      <img src="{{ MEDIA_URL }}/media/{{ u_data.usr_img }}" alt="" />
+    </div>
+    <div class="follow-container">
+      <div class="box">
+        <p>{{ u_data.follower }} Followers</p>
+      </div>
+      <div class="box">
+        <p>{{ u_data.following }} Followings</p>
+      </div>
+    </div>
+    <div class="asked">
+      <p>Ques. Answered : {{ u_data.answered}}</p>
+      <p>Questions Asked : {{ u_data.que_asked }}</p>
+    </div>
+  </div>
+</div>
+
+{% include 'footer.html' %}

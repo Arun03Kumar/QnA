@@ -1,0 +1,44 @@
+{% include 'user_navigation.html' %}
+<style>
+  .frm {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .inp {
+    border: 2px solid #3a5ba0;
+    appearance: none;
+    padding: 12px;
+    width: 450px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    outline: none;
+    display: block;
+    z-index: 99;
+    margin-bottom: 50px;
+  }
+  button {
+    padding: 30px;
+    background-color: #626ee3;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 40px 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<form class="frm" method="post">
+  {% csrf_token %}
+  <input placeholder="Blog Topic Name" class="inp" type="text" name="btopic" />
+  <div style="border: 1px solid #626ee3">
+    <textarea name="blog" id="mytextarea" cols="120" rows="10"></textarea>
+  </div>
+  <button>Submit</button>
+</form>

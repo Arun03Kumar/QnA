@@ -1,0 +1,33 @@
+{% load static %} {% include 'user_navigation.html' %}
+<link rel="stylesheet" href="{% static 'css/view_blogs.css' %}" />
+
+{% for i in data %}
+<div class="main-cont">
+  <div class="card-cont">
+    <div class="card">
+      <div class="img-sec">
+        {% for j in usr_data %} {% if j.user.id == i.user_id %}
+        <div class="img">
+          <img src="{{ MEDIA_URL }}/media/{{ j.usr_img }}" alt="" />
+        </div>
+        <p style="margin-top: 5px; color: white">
+          {{ j.user.first_name }} {{ j.user.last_name }}
+        </p>
+        {% endif %} {% endfor %}
+      </div>
+      <div class="blog-cont">
+        <a href="{% url 'blog' i.id %}"
+          ><div class="topic">{{ i.topic }}</div></a
+        >
+        <div class="blog">{{ i.blog_c|safe }}</div>
+        <a href="{% url 'blog' i.id %}"
+          ><div class="view-more">view more</div></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+{% include 'footer.html' %}

@@ -1,0 +1,18 @@
+{% load static %} {% include 'user_navigation.html' %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+
+<div class="banner">
+  <h1>{{ blog_obj.topic }}</h1>
+</div>
+<div class="img-cont">
+  <img src="{{ MEDIA_URL }}/media/{{ user_data.usr_img }}" alt="" />
+</div>
+<div class="u_name">
+  <p>{{ blog_obj.user_name }}</p>
+</div>
+
+<div class="blog-cont">
+  <p>{{ blog_obj.blog_c|safe }}</p>
+</div>
+
+{% include 'footer.html' %}

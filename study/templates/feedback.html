@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}" />
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <script>
+      tinymce.init({
+        selector: "#mytex",
+      });
+    </script>
+  </head>
+  <body>
+    <a href="{% url 'index' %}"><div class="logo">Q n A</div></a>
+    <form method="post">
+      {% csrf_token %}
+      <div class="info">
+        <div>
+          <input
+            type="text"
+            name="fname"
+            id=""
+            placeholder="Enter Name"
+            required
+          />
+          <input
+            type="number"
+            name="fphone"
+            id=""
+            placeholder="Phone Number"
+            required
+          />
+          <input
+            type="email"
+            name="femail"
+            id=""
+            placeholder="email"
+            required
+          />
+        </div>
+        <div>
+          <textarea name="fcomment" id="mytex" cols="30" rows="10"></textarea>
+          <button class="btn">Submit</button>
+        </div>
+      </div>
+    </form>
+    {% if error == "no" %}
+    <script>
+      alert("Feedback Submitted Successfully")
+      window.location = ('{% url 'feedback' %}')
+    </script>
+    {% endif %} {% if error == "yes" %}
+    <script>
+      alert("Something went wrong, Try Again");
+    </script>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,498 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: gilroy;
+  src: url(../font/Gilroy-ExtraBold.otf);
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}
+:root {
+  --primary: #626ee3;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+/* nav{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+} */
+.logo {
+  font-family: "Fascinate", cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: var(--primary);
+  padding: 50px;
+}
+.log-btn {
+  border: none;
+  height: 100%;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  color: white;
+  padding: 0 20px 0 20px;
+  background-color: var(--primary);
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+/* .nav-bar{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid var(--primary);
+}
+.nav-bar > li{
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+} */
+.main-container {
+  display: flex;
+}
+.main-left {
+  margin-left: 180px;
+  margin-top: 150px;
+}
+.left-container {
+  font-family: "Poppins", sans-serif;
+}
+.ttl {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+/* ----------------word slider ------------*/
+.word-slider {
+  /* display: inline-block; */
+  height: 100px;
+  overflow: hidden;
+}
+.words {
+  display: inline-block;
+  animation: wordSlider 10s ease-out infinite;
+  padding: 0 !important;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+.word {
+  font-size: 5rem;
+  font-weight: bolder;
+  color: var(--primary);
+}
+
+@keyframes wordSlider {
+  0%,
+  12.66%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  16.66%,
+  29.32% {
+    transform: translate3d(0, -25%, 0);
+  }
+  33.32%,
+  45.98% {
+    transform: translate3d(0, -50%, 0);
+  }
+  49.98%,
+  62.64% {
+    transform: translate3d(0, -75%, 0);
+  }
+  66.64%,
+  79.3% {
+    transform: translate3d(0, -50%, 0);
+  }
+  83.3%,
+  95.96% {
+    transform: translate3d(0, -25%, 0);
+  }
+}
+.circle {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+}
+.square {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+.s1 {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: 100px;
+  transform: rotate(30deg);
+  border: 2px solid var(--primary);
+  animation: up1 1s infinite;
+}
+.s2 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 200px;
+  transform: rotate(-30deg);
+  border: 4px solid var(--primary);
+  animation: up 1s infinite;
+}
+.s3 {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  left: 10px;
+  transform: rotate(100deg);
+  border: 3px solid var(--primary);
+  animation: up 1s infinite;
+}
+.s4 {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 300px;
+  transform: rotate(-100deg);
+  border: 5px solid var(--primary);
+  animation: up1 1s infinite;
+}
+@keyframes up {
+  0% {
+    transform: translateY(0px);
+  }
+  /* 25%{transform: translateY(-5px);} */
+  50% {
+    transform: translateY(-10px);
+  }
+  /* 75%{transform: translateY(5px);} */
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes up1 {
+  0% {
+    transform: translateY(0px);
+  }
+  /* 25%{transform: translateY(-5px);} */
+  50% {
+    transform: translateY(-5px);
+    transform: rotate(180deg);
+  }
+  /* 75%{transform: translateY(5px);} */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.form-container {
+  width: 80vw;
+  height: 80vh;
+  margin: 30px auto 0 auto;
+  display: flex;
+}
+.left-form {
+  width: 50%;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--primary);
+}
+.for {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-txt {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--primary);
+}
+.cont-form {
+  width: 70%;
+}
+.cont-form > p {
+  font-family: "Poppins";
+  color: white;
+  font-weight: 300;
+  font-size: 1rem;
+  text-align: justify;
+}
+.custom-field {
+  position: relative;
+  font-size: 14px;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+.custom-field > input {
+  border: 2px solid #3a5ba0;
+  appearance: none;
+  padding: 12px;
+  width: 250px;
+  border-radius: 3px;
+  background: #f2f2f2;
+  outline: none;
+  display: block;
+}
+.custom-field .placeholder {
+  position: absolute;
+  left: 12px;
+  top: calc(50% + 10px);
+  transform: translateY(-50%);
+  color: #aaa;
+  font-family: "Poppins";
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+}
+.custom-field input:valid + .placeholder,
+.custom-field input:focus + .placeholder {
+  top: 20px;
+  font-size: 14px;
+  color: #222;
+  background: #f7f7f7;
+  padding: 4px;
+}
+.custom-field.one input:valid,
+.custom-field.one input:focus {
+  border-color: var(--primary);
+  transition-delay: 0.1s;
+}
+.inp {
+  background: var(--primary);
+  border: none;
+  font-size: 1rem;
+  color: white;
+  margin-top: 8px;
+  cursor: pointer;
+  appearance: none;
+  padding: 12px;
+  width: 250px;
+  border-radius: 3px;
+  outline: none;
+  display: block;
+}
+
+.sign-container {
+  width: 80vw;
+  height: 85vh;
+  margin: 10px auto 0 auto;
+  display: flex;
+}
+.left-sign {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--primary);
+}
+.left-sign > p {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: var(--primary);
+}
+.line {
+  width: 40%;
+  height: 5px;
+  background: var(--primary);
+}
+.right-sign {
+  width: 40%;
+  height: 100%;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.right-sign > p {
+  font-size: 2rem;
+  color: white;
+  width: 75%;
+}
+.sign-form {
+  width: 80%;
+  margin-top: 20px;
+}
+.form-outer {
+  display: flex;
+}
+.left-c1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-c2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15px;
+}
+.rad {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+.sgn-btn {
+  margin: 30px auto 0 auto;
+}
+.btn-log {
+  background: white;
+  color: var(--primary);
+}
+.ntxt {
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  /* color: var(--primary); */
+  margin-top: 150px;
+}
+.line2 {
+  width: 80%;
+  height: 5px;
+  margin: 15px auto 10px auto;
+  background-color: var(--primary);
+}
+.questions {
+  width: 60%;
+  /* height: 300px; */
+  margin: 50px auto 10px auto;
+  display: flex;
+  border-bottom: 1px solid var(--primary);
+}
+.usr-details {
+  width: 30%;
+  height: 100%;
+  /* border: 2px solid var(--primary); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+.ques-details {
+  width: 70%;
+  height: 100%;
+  /* border: 2px solid var(--primary);  */
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+.img-usr {
+  width: 100px;
+  height: 100px;
+  /* display: flex; */
+  /* overflow: hidden; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.date-det-con {
+  display: flex;
+  font-size: 15px;
+}
+.date {
+  color: #aaa;
+}
+.cate {
+  margin-left: 50px;
+}
+.question {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.answers {
+  padding-left: 30px;
+  margin-bottom: 8px;
+}
+.ans-usr {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.ans-usr-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* background: var(--primary); */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ans-usr-name {
+  margin-left: 10px;
+  font-family: "Ubuntu";
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.usr-ans {
+  margin-top: 5px;
+  padding-left: 39px;
+  padding-right: 20px;
+  text-align: justify;
+}
+.ans-strip {
+  width: 100%;
+  height: 50px;
+  background: rgba(145, 9, 30, 0.38);
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.thum {
+  color: #91091e;
+  font-size: 1.3rem;
+  margin: 0 20px;
+  cursor: pointer;
+}
+.ask {
+  color: #91091e;
+  font-size: 1rem;
+  text-decoration: underline;
+  margin-right: 20px;
+  cursor: pointer;
+}

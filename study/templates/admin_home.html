@@ -1,0 +1,115 @@
+<html>
+  <head>
+    {% load static %}
+    <title>Study Material</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="body-container">
+        <a href="{% url 'index' %}"><p class="logo">Q n A</p></a>
+        <div class="all-content">
+          {% for i, j in lst %}
+          <div class="que-cont">
+            <div class="que">
+              <p>Q.&nbsp&nbsp</p>
+              <p>{{ i.que|safe }}</p>
+            </div>
+            <div class="asker">
+              <div class="info">
+                <div class="img-usr">
+                  {% for m in usr_data %} {% if m.user.id == i.user_id %}
+                  <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="" />
+                  {% endif %} {% endfor %}
+                </div>
+                {{ i.user }}
+              </div>
+              <div class="del-que">
+                <a
+                  href="{% url 'delete_que' i.id %}"
+                  onclick="return confirm('Are you Sure?')"
+                  ><button>Delete this question</button></a
+                >
+              </div>
+            </div>
+          </div>
+          {% for k in data %} {% if k.atopic == j %}
+          <div class="ans-cont">
+            <div class="anss-img">
+              {% for m in usr_data %} {% if m.user.id == k.user_id %}
+              <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="" />
+              {% endif %} {% endfor %}
+            </div>
+            <div class="ans">
+              <p>{{ k.ans|safe }}</p>
+              <div class="strip">
+                <p>
+                  <span
+                    ><a href="{% url 'add_on_admin' k.id %}"
+                      ><i class="fa fa-thumbs-up"></i
+                    ></a>
+                    {{ k.h }} &nbsp&nbsp</span
+                  ><span
+                    ><a href="{% url 'addd_on_admin' k.id %}"
+                      ><i class="fa fa-thumbs-down"></i
+                    ></a>
+                    {{ k.nh }}</span
+                  >
+                </p>
+                <p>
+                  <a href="{% url 'add_ans_user' i.id%}"
+                    ><button class="but" style="background: #626ee3">
+                      Answer
+                    </button></a
+                  >
+                  <a
+                    href="{% url 'delete_ans' k.id %}"
+                    onclick="return confirm('Are you Sure?')"
+                    ><button class="but" style="background-color: #eb5353">
+                      delete Answer
+                    </button></a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endif %} {% endfor %} {% endfor %}
+        </div>
+      </div>
+      <div class="menu-admin">
+        <div class="admin-navigation">
+          <p>
+            Welcome,
+            <span style="font-weight: bold; font-size: 1.3rem">
+              {{ user }}</span
+            >
+          </p>
+          <ul class="admin-nav">
+            <a href="{% url 'admin_home' %}"
+              ><li class="nav-items-admin active">Home</li></a
+            >
+            <a href="{% url 'view_user' %}"
+              ><li class="nav-items-admin">View Users</li></a
+            >
+            <a href=""><li class="nav-items-admin">View Blogs</li></a>
+            <a href="{% url 'change_password' %}"
+              ><li class="">Change Password</li></a
+            >
+            <a href="{% url 'view_feedback' %}"
+              ><li class="nav-items-admin">View Feedback</li></a
+            >
+          </ul>
+          <a href="{% url 'logout' %}"
+            ><button class="buttn">Log Out</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

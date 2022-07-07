@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Study Material</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/0da782d01f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/userhome.css' %}" />
+    <script>
+      tinymce.init({
+        selector: "#mytextarea",
+        width: 1000,
+        height: 600,
+      });
+    </script>
+    <script>
+      tinymce.init({
+        selector: "#mytex",
+      });
+    </script>
+  </head>
+  <body>
+    <div class="cross menu--1">
+      <label>
+        <input
+          class="ac"
+          onclick="func()"
+          type="checkbox"
+          style="display: none"
+        />
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="30" />
+          <path class="line--1" d="M0 40h62c13 0 6 28-4 18L35 35" />
+          <path class="line--2" d="M0 50h70" />
+          <path class="line--3" d="M0 60h62c13 0 6-28-4-18L35 65" />
+        </svg>
+      </label>
+      <div class="menu" id="m">
+        <ul class="lst">
+          <a href="{% url 'user_home' %}"><li>Home</li></a>
+          <a href="{% url 'view_que_user' %}"><li>view Questions</li></a>
+          <a href="{% url 'view_blogs' %}"><li>view blog</li></a>
+          <a href="{% url 'write_blog' %}"><li>write blog</li></a>
+          <a href="{% url 'feedback' %}"><li>Feedback</li></a>
+        </ul>
+      </div>
+    </div>
+    <header>
+      <a href="{% url 'user_home' %}"><div class="logo">Q n A</div></a>
+      <div class="log-out">
+        <p>
+          Hello,
+          <span style="font-weight: bold"
+            >{{ user.first_name }} {{ user.last_name }}</span
+          >
+        </p>
+        <a href="{% url 'logout' %}"
+          ><p class="lout">Log out <i class="fa fa-sign-out"></i></p
+        ></a>
+      </div>
+    </header>
+
+    <script>
+      function func() {
+        let toggle = document.querySelector(".ac");
+        let menu = document.querySelector("#m");
+        let lii = document.querySelector(".lst");
+        if (toggle.checked == true) {
+          menu.style.width = "100vw";
+          lii.style.display = "block";
+        } else {
+          menu.style.width = "0";
+          lii.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

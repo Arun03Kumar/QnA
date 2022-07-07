@@ -1,0 +1,120 @@
+<html>
+  <head>
+    {% load static %}
+    <title>Study Material</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}" />
+
+    <style>
+      .all-content {
+        margin-left: 80;
+        margin-right: 20px;
+      }
+      #example {
+        border-collapse: collapse;
+      }
+      #example th {
+        padding: 20px;
+        text-align: left;
+        color: white;
+      }
+      #example tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #example td,
+      #example th {
+        border: 1px solid #ddd;
+        padding: 15px 10px 15px 10px;
+      }
+      .active::before {
+        content: "";
+        height: 100%;
+        width: 150%;
+        position: absolute;
+        background-color: #f7f7f7;
+        left: -170px;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="body-container">
+        <a href="{% url 'index' %}"><p class="logo">Q n A</p></a>
+        <div class="all-content">
+          <table class="" id="example">
+            <thead>
+              <tr style="background-color: #626ee3; padding: 10px">
+                <th>S. No.</th>
+                <th>Full Name</th>
+                <th>Email ID</th>
+                <th>Contact</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                <td>{{i.user.username}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.dob}}</td>
+                <a
+                  href="{% url 'delete_user' i.user.id %}"
+                  onclick="return confirm('Are you Sure?')"
+                  ><td
+                    style="
+                      background-color: #eb5353;
+                      color: white;
+                      cursor: pointer;
+                    "
+                  >
+                    Delete
+                  </td></a
+                >
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="menu-admin">
+        <div class="admin-navigation">
+          <p>
+            Welcome,
+            <span style="font-weight: bold; font-size: 1.3rem">
+              {{ user }}</span
+            >
+          </p>
+          <ul class="admin-nav">
+            <a href="{% url 'admin_home' %}"><li class="">Home</li></a>
+            <a href="{% url 'view_user' %}"
+              ><li class="active" style="color: black">View Users</li></a
+            >
+            <a href="{% url 'view_blog_admin' %}"
+              ><li class="">View Blogs</li></a
+            >
+            <a href="{% url 'change_password' %}"
+              ><li class="">Change Password</li></a
+            >
+            <a href="{% url 'view_feedback' %}"
+              ><li class="">View Feedback</li></a
+            >
+          </ul>
+          <a href="{% url 'logout' %}"
+            ><button class="buttn">Log Out</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

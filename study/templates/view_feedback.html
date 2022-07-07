@@ -1,0 +1,116 @@
+<html>
+  <head>
+    {% load static %}
+    <title>Study Material</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}" />
+    <style>
+      .all-content {
+        margin-left: 80;
+        margin-right: 20px;
+      }
+      .active::before {
+        content: "";
+        height: 100%;
+        width: 150%;
+        position: absolute;
+        background-color: #f7f7f7;
+        left: -170px;
+        top: 0;
+      }
+      .feed {
+        display: flex;
+        padding: 20px;
+        border: 1px solid #626ee3;
+        width: 80%;
+        margin: 0 auto 20px auto;
+      }
+      .info-feed {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        text-align: justify;
+        justify-content: center;
+        margin-top: 8px;
+        /* align-items: center; */
+      }
+      .feed-cont {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        font-size: 1.3rem;
+        font-weight: bold;
+        /* margin-left: 30px; */
+        text-align: justify;
+        /* align-items: center; */
+        /* padding: 40px; */
+      }
+      .info-feed > a > button {
+        width: 40%;
+        padding: 15px;
+        font-size: 1.2rem;
+        background: #eb5353;
+        color: white;
+        border: none;
+        margin-top: 30px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="body-container">
+        <a href="{% url 'index' %}"><p class="logo">Q n A</p></a>
+        <div class="all-content">
+          {% for i in data %}
+          <div class="feed">
+            <div class="info-feed">
+              <div>
+                <p>NAME: {{ i.feedback_name }}</p>
+                <p>email: {{ i.feedback_email }}</p>
+                <p>contact: {{ i.feedback_contact }}</p>
+              </div>
+              <a
+                href="{% url 'delete_feedback' i.id %}"
+                onclick="return confirm('Are you Sure?')"
+                ><button>Delete</button></a
+              >
+            </div>
+            <div class="feed-cont">{{ i.feedback_comment|safe }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="menu-admin">
+        <div class="admin-navigation">
+          <p>
+            Welcome,
+            <span style="font-weight: bold; font-size: 1.3rem">
+              {{ user }}</span
+            >
+          </p>
+          <ul class="admin-nav">
+            <a href="{% url 'admin_home' %}"><li class="">Home</li></a>
+            <a href="{% url 'view_user' %}"><li class="">View Users</li></a>
+            <a href="{% url 'view_blog_admin' %}"
+              ><li class="">View Blogs</li></a
+            >
+            <a href="{% url 'change_password' %}"
+              ><li class="">Change Password</li></a
+            >
+            <a href=""><li class="active">View Feedback</li></a>
+          </ul>
+          <a href="{% url 'logout' %}"
+            ><button class="buttn">Log Out</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

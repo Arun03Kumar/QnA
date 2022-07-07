@@ -1,0 +1,50 @@
+{% load static %} {% include 'user_navigation.html' %}
+<style>
+  .frm {
+    width: 60%;
+    margin: 40px auto;
+  }
+  select {
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 15px;
+  }
+  button {
+    padding: 20px;
+    background-color: #626ee3;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+<form class="frm" method="post">
+  {% csrf_token %}
+  <select class="form-control col-10" name="topic">
+    <option value="Science">Science</option>
+    <option value="Engineering">Engineering</option>
+    <option value="Personal">Personal</option>
+    <option value="Mathematics">Mathematics</option>
+    <option value="Tourism">Tourism</option>
+  </select>
+  <textarea name="que" id="mytex"></textarea>
+  <div><button>Submit</button></div>
+</form>
+
+{% if error == "no" %}
+<script>
+  alert("Question Added Successfully")
+  window.location = ('{% url 'add_que_user' %}')
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+  alert("Something Went Wrong try again...")
+  window.location = ('{% url 'add_que_user' %}')
+</script>
+{% endif %}
+
+
+{% include 'footer.html' %}

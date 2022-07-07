@@ -1,0 +1,91 @@
+{% load static %}
+{% include 'navigation.html' %}
+<div class="main-container">
+    <div class="main-left">
+        <div class="left-container">
+            <p class="ttl">A Platform<br/> where people can:</p>
+            <div class="word-slider">
+                <ul class="words">
+                    <li class="word">ASK QUESTIONS.</li>
+                    <li class="word">WRITE ANSWERS.</li>
+                    <li class="word">POST BLOGS.</li>
+                    <li class="word">AND MANY MORE.</li>
+                    <!-- <li class="word">ASK QUESTIONS.</li> -->
+                </ul>
+             </div>
+        </div>
+    </div>
+    <div class="main-right">
+        <!-- <div class="circle"></div> -->
+        <div class="square s1"></div>
+        <div class="square s2"></div>
+        <div class="square s3"></div>
+        <div class="square s4"></div>
+        <div class="square s1"></div>
+        <div class="square s2"></div>
+        <div class="square s3"></div>
+        <div class="square s4"></div>
+        <div class="square s1"></div>
+        <!-- <div class="square s2"></div>
+        <div class="square s3"></div>
+        <div class="square s4"></div> -->
+    </div>
+</div>
+<h1 class="ntxt">Newly Asked Questions</h1>
+<div class="line2"></div>
+{% for i, j in lst %}
+<div class="questions">
+    <div class="usr-details">
+        <div class="img-usr">
+            {% for m in usr_data %}
+            {% if m.user.id == i.user_id %}
+            <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="">
+            {% endif %}
+            {% endfor %}
+        </div>
+        <p class="usr-name">{{ i.user }}</p>
+    </div>
+    <div class="ques-details">
+        <div class="date-det-con">
+            <div class="date">
+                <p>Asked: 22/05/2012</p>
+            </div>
+            <div class="cate">
+                <p>In: <span style="color: blue;">{{ i.topic }}</span></p>
+            </div>
+        </div>
+        <p class="question">{{ i.que }}</p>
+        {% for k in data %}
+        {% if k.atopic == j %}
+        <div class="answers">
+            <div class="ans-usr">
+                <div class="ans-usr-img">
+                    {% for m in usr_data %}
+                    {% if m.user.id == k.user_id %}
+                    <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="">
+                    {% endif %}
+                    {% endfor %} 
+                </div>
+                <div class="ans-usr-name">{{ k.user }}</div>
+            </div>
+            <div class="usr-ans">
+                <p class="ans">{{ k.ans|safe }}</p>
+            </div>
+            <div class="ans-strip">
+                <div class="vote">
+                    <a href='{% url 'login' %}'><span class="thum"><i class="fa fa-thumbs-up"></i> {{ k.h }}</span></a>
+                    <a href='{% url 'login' %}'><span class="thum"><i class="fa fa-thumbs-down"></i> {{ k.nh }}</span></a>
+                </div>
+                <div class="ask">
+                    <a href='{% url 'login' %}'>Answer This Question.</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endfor %}
+
+{% include 'footer.html' %}

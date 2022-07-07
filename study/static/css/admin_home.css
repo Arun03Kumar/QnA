@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: gilroy;
+  src: url(../font/Gilroy-ExtraBold.otf);
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Poppins";
+}
+:root {
+  --primary: #626ee3;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+.main-container {
+  display: flex;
+}
+.all-content {
+  margin-top: 150px;
+  margin-left: 180px;
+  margin-right: 40px;
+}
+.body-container {
+  width: 80%;
+}
+.menu-admin {
+  width: 30%;
+}
+.admin-navigation {
+  position: sticky;
+  width: 300px;
+  height: 100vh;
+  /* max-height: 100vh; */
+  top: 0;
+  background: var(--primary);
+  left: 100%;
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  z-index: 99;
+}
+.admin-navigation > p {
+  color: white;
+}
+.admin-nav {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.admin-nav > a > li {
+  padding: 12px;
+  color: #f7f7f7;
+  font-size: 1.2rem;
+  font-family: "Ubuntu";
+  cursor: pointer;
+}
+.active {
+  background-color: #f7f7f7;
+  color: black !important;
+  position: relative;
+}
+.active::before {
+  content: "";
+  height: 100%;
+  width: 230%;
+  position: absolute;
+  background-color: #f7f7f7;
+  left: -170px;
+  top: 0;
+}
+.buttn {
+  padding: 13px;
+  color: #626ee3;
+  background-color: white;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.logo {
+  font-family: "Fascinate", cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: var(--primary);
+  padding: 20px 0 0 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.que-cont {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.que {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: justify;
+  display: flex;
+}
+.asker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.info {
+  display: flex;
+}
+.img-usr {
+  width: 30px;
+  height: 30px;
+}
+.ans-cont {
+  margin: 30px 0 50px 70px;
+  display: flex;
+}
+.anss-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.del-que > a > button {
+  padding: 15px;
+  border: none;
+  background: #eb5353;
+  color: white;
+  border-radius: 3px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.ans {
+  width: 100%;
+  text-align: justify;
+}
+.strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.but {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}

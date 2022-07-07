@@ -1,0 +1,50 @@
+{% load static %}
+{% include 'user_navigation.html' %}
+<link rel="stylesheet" href="{% static 'css/view_ques_user.css' %}">
+
+{% for i, j in lst %}
+<div class="main-cont">
+    <div class="ques-cont">
+        <div class="img-asked-by">
+            {% for m in usr_data %}
+            {% if m.user.id == i.user_id %}
+            <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="">
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="ques">
+            <p>{{ i.que }}</p>
+            <div class="cat">Category : {{ i.topic }}</div>
+    </div>
+        </div>
+        
+    
+    <div class="ans-cont">
+        {% for k in data %}
+        {% if k.atopic == j %}
+        <div class="img-flo">
+            <div class="ans-usr">
+                {% for m in usr_data %}
+                {% if m.user.id == k.user_id %}
+                <img src="{{ MEDIA_URL }}/media/{{ m.usr_img }}" alt="">
+                <p>{{ m.user.first_name }} {{ m.user.last_name }}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <a href="{% url 'follow_inc' k.user_id %}"><i class="fa fa-user-plus"></i></a>
+        </div>
+        <div class="ans">
+            <p>{{ k.ans|safe }}</p>
+            <div class="like">
+                <a href="{% url 'add' k.id %}"><i class="fa fa-thumbs-up"></i><span> {{ k.h }}</span></a>
+                <a href="{% url 'addd' k.id %}"><i class="fa fa-thumbs-down mar-like"></i><span> {{ k.nh }}</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+</div>
+{% endfor %}
+
+{% include 'footer.html' %}

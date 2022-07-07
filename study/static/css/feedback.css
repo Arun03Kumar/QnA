@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: gilroy;
+  src: url(../font/Gilroy-ExtraBold.otf);
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}
+:root {
+  --primary: #626ee3;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+.logo {
+  font-family: "Fascinate", cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: var(--primary);
+  padding: 20px 0px 0 50px;
+}
+form {
+  width: 80%;
+  margin: 40px auto 0 auto;
+}
+.info {
+  display: flex;
+  justify-content: center;
+}
+.info > div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+.info > div > input {
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 3px;
+}
+.btn {
+  width: 20%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}

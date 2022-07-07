@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f7f7f7;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}
+:root {
+  --primary: #626ee3;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+.menu--1 > label {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #f7f7f7;
+  max-width: 150px;
+  max-height: 150px;
+}
+path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  --length: 24;
+  --offset: -38;
+  stroke-dasharray: var(--length) var(--total-length);
+  stroke-dashoffset: var(--offset);
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+circle {
+  fill: #fff3;
+  opacity: 0;
+}
+
+label:hover circle {
+  opacity: 1;
+}
+
+.cross input:checked + svg .line--1,
+.cross input:checked + svg .line--3 {
+  --length: 22.627416998;
+}
+
+.cross input:checked + svg .line--2 {
+  --length: 0;
+}
+.menu--1 .line--1,
+.menu--1 .line--3 {
+  /* --total-length: 126.64183044433594; */
+  --total-length: 150;
+}
+
+.menu--1 .line--2 {
+  /* --total-length: 70; */
+  --total-length: 100;
+}
+
+.menu--1 input:checked + svg .line--1,
+.menu--1 input:checked + svg .line--3 {
+  --offset: -94.1149185097;
+}
+
+.menu--1 input:checked + svg .line--2 {
+  --offset: -50;
+}
+
+.logo {
+  font-family: "Fascinate", cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: var(--primary);
+  padding-top: 17px;
+  margin-left: 150px;
+}
+.menu {
+  position: fixed;
+  left: 100px;
+  top: 0;
+  width: 0;
+  height: 100vh;
+  background: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 1s ease;
+  z-index: 99;
+}
+
+.menu > ul > a > li {
+  color: white;
+  font-size: 2rem;
+  font-family: "Ubuntu";
+  font-weight: bolder;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+.menu > ul > a > li:hover {
+  transform: scale(1.5);
+}
+.mm:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+.lst {
+  display: none;
+  text-align: center;
+  margin-right: 80px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.log-out {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  margin-right: 50px;
+}
+.log-out > p {
+  padding-right: 20px;
+}
+.lout {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.main-user-view {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+.left-user-main {
+  width: 73%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 50px;
+  /* background-color: red; */
+}
+.right-user-main {
+  width: 27%;
+  height: 500px;
+  background: var(--primary);
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.usr-img {
+  width: 100px;
+  height: 100px;
+  /* border-radius: 50%;
+  background-color: white; */
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.usr-img > i {
+  font-size: 5rem;
+}
+.follow-container {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-right: 15px;
+  padding-left: 15px;
+}
+.box {
+  display: flex;
+  color: #f7f7f7;
+  margin-top: 20px;
+}
+.asked {
+  color: #f7f7f7;
+  font-size: 1.3rem;
+  margin-top: 100px;
+}
+.asked > p {
+  margin-bottom: 15px;
+}
+.srch {
+  border: 2px solid #3a5ba0;
+  appearance: none;
+  padding: 6px;
+  height: 35px;
+  padding-left: 25px;
+  width: 500px;
+  border-radius: 3px;
+  background: #f2f2f2;
+  outline: none;
+  display: block;
+  box-shadow: 0px -1px 50px 2px rgba(98, 110, 227, 0.75);
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fa-filter {
+  position: relative;
+  left: 20px;
+  top: 0px;
+  color: #aaa;
+}
+.usr-ques {
+  display: flex;
+  width: 80%;
+  padding: 20px 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  /* background: rgba(105, 48, 195, 0.38); */
+  color: var(--primary);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid var(--primary);
+}
+.quess {
+  font-family: "Ubuntu";
+  font-size: 1.2rem;
+}
+.ques-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.ans-btn {
+  /* margin-left: 89%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.ans-btn > a > button {
+  background: none;
+  border: 1px solid var(--primary);
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #f7f7f7;
+  background: var(--primary);
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  margin-top: 20px;
+}
+.ans-btn > a > button:hover {
+  background: white;
+  color: var(--primary);
+}
+.ques-askes-inf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.ans-usr-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* background: var(--primary); */
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.ans-usr-name {
+  margin-left: 10px;
+  font-family: "Ubuntu";
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.follow {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.ask-btn {
+  margin-left: 48px;
+}
+.ask-btn > a > button {
+  background: none;
+  background-color: var(--primary);
+  border: none;
+  padding: 20px;
+  color: white;
+  font-size: 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
